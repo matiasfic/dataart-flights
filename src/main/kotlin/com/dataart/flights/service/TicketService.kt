@@ -13,4 +13,12 @@ class TicketService(private val ticketRepository: TicketRepository) {
 
     fun findById(id: Long) = ticketRepository.findById(id)
 
+    fun findAll() = ticketRepository.findAll()
+
+    fun update(id: Long, ticket: Ticket) = ticketRepository.save(ticket.copy(id = id))
+
+    fun delete(id: Long) {
+        ticketRepository.deleteById(id)
+    }
+
 }
